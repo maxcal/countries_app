@@ -1,0 +1,15 @@
+<h1>Countries</h1>
+
+
+<% if @countries.any? %>
+<ul>
+  <% @countries.each do |c| %>
+  <li><%= c.name %></li>
+  <% end %>
+</ul>
+<% else %>
+  <h2>There are no countries stored</h2>
+  <%= form_with(url: import_countries_path, local: true) do |f| %>
+    <%= f.submit "Import" %>
+  <% end %>
+<% end %>
